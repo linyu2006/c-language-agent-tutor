@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 语言智能辅导系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>C 语言智能辅导系统</h1>
+            <p class="subtitle">多 Agent 协作 &middot; 语法检查 &middot; 逻辑分析 &middot; 自动验证</p>
+        </header>
+
+        <main class="main-content">
+            <section class="input-panel">
+                <div class="panel-header">代码提交</div>
+
+                <label class="field-label">C 代码</label>
+                <textarea id="codeInput" class="code-editor" placeholder="在此粘贴你的 C 代码...&#10;&#10;例如：&#10;#include &lt;stdio.h&gt;&#10;int main() {&#10;    printf(&quot;Hello World&quot;);&#10;    return 0;&#10;}" spellcheck="false"></textarea>
+
+                <label class="field-label">题目描述（可选）</label>
+                <textarea id="problemInput" class="text-input" placeholder="例如：输入两个整数，输出它们的最大公约数" rows="2"></textarea>
+
+                <details class="test-cases-section">
+                    <summary class="test-cases-toggle">测试用例（可选）</summary>
+                    <div class="test-cases-grid">
+                        <div>
+                            <label class="field-label">输入（每行一组）</label>
+                            <textarea id="testInputs" class="text-input test-io" placeholder="12 8&#10;0 5&#10;100 25" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <label class="field-label">期望输出（每行一组）</label>
+                            <textarea id="testOutputs" class="text-input test-io" placeholder="4&#10;5&#10;25" rows="4"></textarea>
+                        </div>
+                    </div>
+                </details>
+
+                <button id="submitBtn" class="btn-primary" onclick="submitAnalysis()">提交分析</button>
+                <button id="clearBtn" class="btn-secondary" onclick="clearAll()">清空</button>
+            </section>
+
+            <section class="result-panel">
+                <div class="panel-header">分析结果</div>
+                <div id="resultContainer" class="result-container">
+                    <div class="placeholder">
+                        <div class="placeholder-icon">&#9000;</div>
+                        <p>提交代码后将在此处显示三个 Agent 的协作分析过程</p>
+                        <div class="agent-flow">
+                            <span class="flow-step">理解 Agent</span>
+                            <span class="flow-arrow">&rarr;</span>
+                            <span class="flow-step">辅导 Agent</span>
+                            <span class="flow-arrow">&rarr;</span>
+                            <span class="flow-step">验证 Agent</span>
+                            <span class="flow-arrow">&rarr;</span>
+                            <span class="flow-step">闭环反馈</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
